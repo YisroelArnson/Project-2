@@ -11,6 +11,13 @@ public:
     Exponent(Expression* left, Expression* right) : SubExpression(left, right) {
     }
     double evaluate() {
-        return pow(left->evaluate(), right->evaluate());
+        double result = 1.0;
+        double exponent = right;
+        double base = left;
+        
+        for (int i = 0; i < exponent; ++i) {
+            result *= base;
+        }
+        return result;
     }
 };
